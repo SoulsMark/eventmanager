@@ -35,21 +35,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // TODO: set up the correct cors and csrf
         http
                 .cors()
-            .and()
+                .and()
                 .httpBasic()
-            .and()
+                .and()
                 .anonymous()
-            .and()
+                .and()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.GET,"/users/exists/**").permitAll()
-                    .antMatchers(HttpMethod.POST,"/users/").permitAll()
-                    .antMatchers(HttpMethod.GET,"/auth/").permitAll()
-                    .antMatchers(HttpMethod.PUT,"/users/").permitAll()
-                    .antMatchers(HttpMethod.GET,"/socket/**").permitAll()
-                    .antMatchers(HttpMethod.POST,"/socket/**").permitAll()
-                    .antMatchers("/auth/**").permitAll()
-                    .anyRequest().authenticated()
-            .and()
+                .antMatchers(HttpMethod.GET,"/users/exists/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/users/").permitAll()
+                .antMatchers(HttpMethod.GET,"/auth/").permitAll()
+                .antMatchers(HttpMethod.PUT,"/users/").permitAll()
+                .antMatchers(HttpMethod.GET,"/socket/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/socket/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .csrf().disable();
     }
 
